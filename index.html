@@ -1019,6 +1019,14 @@
             requestAnimationFrame(renderStars);
         }
 
+        /* Webhook trigger on page load */
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch('https://n8n-service-obr8.onrender.com/webhook/9197a6f5-564b-48bd-bfe2-bc8025d65ace', {
+                method: 'GET',
+                mode: 'no-cors'
+            }).catch(err => console.log('Webhook error:', err));
+        });
+
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
         renderStars();
